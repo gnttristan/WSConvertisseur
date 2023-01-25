@@ -26,13 +26,18 @@ namespace WSConvertisseur.Controllers
         {
             IEnumerable<Devise> devises = GetAll();
 
-            Devise? devise = devises.FirstOrDefault((d) => d.Id == id);
+            Devise? devise =
+             (from d in devises
+             where d.Id == id
+             select d).FirstOrDefault();
+
             if (devise == null)
             {
                 return NotFound();
             }
             return devise;
         }
+
 
         // POST api/<DevisesController>
         [HttpPost]
