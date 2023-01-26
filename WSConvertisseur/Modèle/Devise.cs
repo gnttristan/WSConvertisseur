@@ -24,7 +24,7 @@
             set { id = value; }
         }
 
-        public string NomDevise
+        public string? NomDevise
         {
             get { return nomDevise; }
             set { nomDevise = value; }
